@@ -129,19 +129,20 @@ function twelve() {
 
 function thirteen() {
 	let result = "", title = "13. Display all the odd numbers contained in sampleArray. (469, 755, 245, ..., 179, 535)";
-    result = sampleArray.filter(element => element % 2 == 0).join(" ");
+    result = sampleArray.filter(element => element % 2 == 1).join(" ");
 	createAppend(title, result);
 }
 
 function fourteen() {
 	let result = "", title = "14. Display the square of each element in sampleArray. (219961, 570025, ..., 222784)";
 
+    result = sampleArray.map(element => element*element).join(" ");
 	createAppend(title, result);
 }
 
 function fifteen() {
 	let result = "", title = "15. Display the sum of all the numbers from 1 to 20.";
-
+    result = sampleArray.map(element => element*element).join(" ");
 	createAppend(title, result);
 }
 
@@ -193,7 +194,7 @@ function twentythree() {
 	createAppend(title, result);
 }
 
-const functions = [one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, ninteen, twenty];
+const functions = [one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, ninteen, twenty, twentyone, twentytwo, twentythree];
 
     /*
     *   Main
