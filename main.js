@@ -1,24 +1,44 @@
 const sampleArray = [469, 755, 244, 245, 758, 450, 302, 20, 712, 71, 456, 21, 398, 339, 882, 848, 179, 535, 940, 472];
+const twentyArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
     /*
     *   Create and append html
     */
 
-function createAppend(title, content, id) {
+
+function createAppendDiv(height, width, color, entryPoint) {
 	const element = document.createElement("div");
-	const header = document.createElement("h3");
-	const text = document.createElement("p");
 
-	element.id = id;
-	header.textContent = title;
-	text.textContent = content;
+    element.style.backgroundColor = color;
+    element.style.height = height;
+    element.style.width = width;
 
-	element.appendChild(header);
-	element.appendChild(text);
-
-	document.getElementById("main").appendChild(element);
+	document.getElementById(entryPoint).appendChild(element);
 }
 
+function createAppendText(title, content, id, className, entryPoint = "main") {
+	const element = document.createElement("div");
+
+    if (typeof id != "undefined"){
+        element.id = id;
+    }
+	if (typeof className != "undefined"){
+        element.className = className;
+    }
+    if (typeof title != "undefined"){
+        var header = document.createElement("h3");
+        header.textContent = title;
+	    element.appendChild(header);
+    }
+	if (typeof content != "undefined"){
+    	var text = document.createElement("p");
+	    text.textContent = content;
+	    element.appendChild(text);
+    }
+
+	document.getElementById(entryPoint).appendChild(element);
+}
+``
 	/*
 	*   Katas
     */
@@ -28,7 +48,7 @@ function one() {
 	for(let a = 0; a <= 20; a++ ){
 		result += " " + a;
 	}
-	createAppend(title, result);
+	createAppendText(title, result);
 }
 
 function two() {
@@ -36,7 +56,7 @@ function two() {
 	for(let b = 0; b <= 20; b++ ){
 		if( b%2 == 0) result += " " + b;
 	}
-	createAppend(title, result);
+	createAppendText(title, result);
 }
 
 function three() {
@@ -44,7 +64,7 @@ function three() {
 	for(let c = 0; c <= 20; c++ ){
 		if ( c % 2 == 1 ) result += " " + c;
 	}
-	createAppend(title, result);
+	createAppendText(title, result);
 }
 
 function four() {
@@ -52,7 +72,7 @@ function four() {
 	for(let d = 0; d <= 100; d += 5 ){
 		result += " " + d;
 	}
-	createAppend(title, result);
+	createAppendText(title, result);
 }
 
 function five() {
@@ -60,7 +80,7 @@ function five() {
 	for(let e = 0; e <= 10; e++ ){
 		result += " " + e*e;
 	}
-	createAppend(title, result);
+	createAppendText(title, result);
 }
 
 function six() {
@@ -69,7 +89,7 @@ function six() {
 		f--;
 		result += " " + f;
 	} while ( f > 0 );
-	createAppend(title, result);
+	createAppendText(title, result);
 }
 
 function seven() {
@@ -79,7 +99,7 @@ function seven() {
 		if ( g%2 == 0 )  result += " " + g;
 		g--;
 	} while ( g > 0 );
-	createAppend(title, result);
+	createAppendText(title, result);
 }
 
 function eight() {
@@ -90,7 +110,7 @@ function eight() {
 		h--;
 	} while ( h > 0 );
 
-	createAppend(title, result);
+	createAppendText(title, result);
 }
 
 function nine() {
@@ -100,7 +120,7 @@ function nine() {
 		i -= 5;
 		result += " " + i;
 	} while ( i > 0 );
-	createAppend(title, result);
+	createAppendText(title, result);
 }
 
 function ten() {
@@ -110,7 +130,7 @@ function ten() {
 		result += " " + j*j;
 		j--;
 	} while ( j > 0 );
-	createAppend(title, result);
+	createAppendText(title, result);
 }
 
 function eleven() {
@@ -118,80 +138,115 @@ function eleven() {
     for (let i = 0; i < sampleArray.length; i++) {
 	   result += sampleArray[i] + " "
 	}
-	createAppend(title, result);
+	createAppendText(title, result);
 }
 
 function twelve() {
 	let result = "", title = "12. Display all the even numbers contained in sampleArray. (244, 758, 450, ..., 940, 472)";
     result = sampleArray.filter(element => element % 2 == 0).join(" ");
-    createAppend(title, result);
+    createAppendText(title, result);
 }
 
 function thirteen() {
 	let result = "", title = "13. Display all the odd numbers contained in sampleArray. (469, 755, 245, ..., 179, 535)";
     result = sampleArray.filter(element => element % 2 == 1).join(" ");
-	createAppend(title, result);
+	createAppendText(title, result);
 }
 
 function fourteen() {
 	let result = "", title = "14. Display the square of each element in sampleArray. (219961, 570025, ..., 222784)";
 
     result = sampleArray.map(element => element*element).join(" ");
-	createAppend(title, result);
+	createAppendText(title, result);
 }
 
 function fifteen() {
-	let result = "", title = "15. Display the sum of all the numbers from 1 to 20.";
-    result = sampleArray.map(element => element*element).join(" ");
-	createAppend(title, result);
+	let result = 0, title = "15. Display the sum of all the numbers from 1 to 20.";
+    twentyArray.map(element => result += element);
+	createAppendText(title, result.toString());
 }
 
 function sixteen() {
-	let result = "", title = "16. Display the sum of all the elements in sampleArray.";
-
-	createAppend(title, result);
+	let result = 0, title = "16. Display the sum of all the elements in sampleArray.";
+    sampleArray.map(element => result += element);
+	createAppendText(title, result);
 }
 
 function seventeen() {
-	let result = "", title = "17. Display the smallest element in sampleArray.";
-
-	createAppend(title, result);
+	let result = sampleArray[0], title = "17. Display the smallest element in sampleArray.";
+    for ( i of sampleArray ){
+        if (i < result) {
+            result = i;
+        }
+    }
+	createAppendText(title, result);
 }
 
 function eighteen() {
     let result = "", title = "18. Display the largest element in sampleArray.";
-
-	createAppend(title, result);
+    for ( i of sampleArray ){
+        if (i > result) {
+            result = i;
+        }
+    }
+	createAppendText(title, result);
 }
 
 function ninteen() {
-	let result = "", title = "19. Display 20 solid gray rectangles, each 20px high and 100px wide.";
-
-	createAppend(title, result);
+	let result = undefined, title = "19. Display 20 solid gray rectangles, each 20px high and 100px wide.";
+    createAppendText(title, undefined);
+    createAppendText(undefined,undefined,"box19");
+    for (i = 0;i < 20;i++){
+        createAppendDiv("20px", "100px", "gray", "box19");
+    }
 }
 
 function twenty() {
-	let result = "", title = "20. Display 20 solid gray rectangles, each 20px high, with widths ranging evenly from 105px to 200px (remember #4, above).";
-
-	createAppend(title, result);
+	let result = undefined, title = "20. Display 20 solid gray rectangles, each 20px high, with widths ranging evenly from 105px to 200px (remember #4, above).";
+    createAppendText(title, result);
+    createAppendText(undefined,undefined,"box20");
+    for (i = 105;i < 200;i++){
+        createAppendDiv("20px", i + "px", "gray", "box20");
+    }
 }
 
 function twentyone() {
-	let result = "", title = "21. Display 20 solid gray rectangles, each 20px high, with widths in pixels given by the 20 elements of sampleArray.";
-
-	createAppend(title, result);
+	let result = undefined, title = "21. Display 20 solid gray rectangles, each 20px high, with widths in pixels given by the 20 elements of sampleArray.";
+    createAppendText(title, result);
+    createAppendText(undefined,undefined,"box21");
+    for (i = 0;i < 20;i++){
+        createAppendDiv("20px", sampleArray[ i ] + "px", "gray", "box21");
+    }
 }
 
 function twentytwo() {
 	let result = "", title = "22. As in #21, but alternate colors so that every other rectangle is red.";
+    createAppendText(title, result);
 
-	createAppend(title, result);
+    createAppendText(undefined,undefined,"box22");
+    for (i = 0;i < 20;i++){
+        if (i%2==0){
+            color = "gray";
+        } else {
+            color = "red";
+        }
+        createAppendDiv("20px", sampleArray[ i ] + "px", color, "box22");
+    }
 }
 
 function twentythree() {
 	let result = "", title = "23. As in #21, but color the rectangles with even widths red.";
+    createAppendText(title, result);
 
-	createAppend(title, result);
+    createAppendText(undefined,undefined,"box23");
+    for (i = 0;i < 20;i++){
+        if (sampleArray[i]%2==0){
+            color = "gray";
+        } else {
+            color = "red";
+        }
+        createAppendDiv("20px", sampleArray[ i ] + "px", color, "box23");
+    }
 }
 
 const functions = [one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, ninteen, twenty, twentyone, twentytwo, twentythree];

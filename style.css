@@ -1,7 +1,9 @@
 /* Styles for main blocks/containers, sizes, fonts, global stuff. */
 
-
-
+#box19 {
+    display: flex;
+    flex-flow: row wrap;
+}
 /**/
 /**/
 /**/
