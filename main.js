@@ -135,7 +135,7 @@ function ten() {
 
 function eleven() {
 	let result = "", title = "11. Display the 20 elements of sampleArray. (469, 755, 244, ..., 940, 472)";
-    for (let i = 0; i < sampleArray.length; i++) {
+    for (let i = 0; i < sampleArray.length;  i += 1) {
 	   result += sampleArray[i] + " "
 	}
 	createAppendText(title, result);
@@ -196,7 +196,7 @@ function ninteen() {
 	let result = undefined, title = "19. Display 20 solid gray rectangles, each 20px high and 100px wide.";
     createAppendText(title, undefined);
     createAppendText(undefined,undefined,"box19");
-    for (i = 0;i < 20;i++){
+    for (i = 0;i < 20; i += 1){
         createAppendDiv("20px", "100px", "gray", "box19");
     }
 }
@@ -205,7 +205,7 @@ function twenty() {
 	let result = undefined, title = "20. Display 20 solid gray rectangles, each 20px high, with widths ranging evenly from 105px to 200px (remember #4, above).";
     createAppendText(title, result);
     createAppendText(undefined,undefined,"box20");
-    for (i = 105;i < 200;i++){
+    for (i = 105;i < 200;i += 5){
         createAppendDiv("20px", i + "px", "gray", "box20");
     }
 }
@@ -214,7 +214,7 @@ function twentyone() {
 	let result = undefined, title = "21. Display 20 solid gray rectangles, each 20px high, with widths in pixels given by the 20 elements of sampleArray.";
     createAppendText(title, result);
     createAppendText(undefined,undefined,"box21");
-    for (i = 0;i < 20;i++){
+    for (i = 0;i < 20; i += 1){
         createAppendDiv("20px", sampleArray[ i ] + "px", "gray", "box21");
     }
 }
@@ -224,7 +224,7 @@ function twentytwo() {
     createAppendText(title, result);
 
     createAppendText(undefined,undefined,"box22");
-    for (i = 0;i < 20;i++){
+    for (i = 0;i < 20; i += 1){
         if (i%2==0){
             color = "gray";
         } else {
@@ -239,11 +239,11 @@ function twentythree() {
     createAppendText(title, result);
 
     createAppendText(undefined,undefined,"box23");
-    for (i = 0;i < 20;i++){
+    for (i = 0;i < 20; i += 1){
         if (sampleArray[i]%2==0){
-            color = "gray";
-        } else {
             color = "red";
+        } else {
+            color = "gray";
         }
         createAppendDiv("20px", sampleArray[ i ] + "px", color, "box23");
     }
